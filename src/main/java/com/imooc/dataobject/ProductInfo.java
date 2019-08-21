@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**
- * 商品
+ * 商品详情
  * @Author wanghl
  * @Date: Created in 15:23 2019/8/19 0019
  */

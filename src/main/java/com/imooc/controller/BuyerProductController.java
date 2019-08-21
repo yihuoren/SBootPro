@@ -7,6 +7,7 @@ import com.imooc.dataobject.ProductCategory;
 import com.imooc.dataobject.ProductInfo;
 import com.imooc.service.CategoryService;
 import com.imooc.service.ProductService;
+import com.imooc.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +40,8 @@ public class BuyerProductController {
         //1.查询所有上架的商品
         List<ProductInfo> productInfoList = productService.findUpAll();
         //2.查询类目(一次性查询)
-//        List<Integer> categoryTypeList = new ArrayList<>();
         // 传统方法
+//        List<Integer> categoryTypeList = new ArrayList<>();
 //        for(ProductInfo productInfo : productInfoList){
 //            categoryTypeList.add(productInfo.getCategoryType());
 //        }
@@ -68,11 +69,6 @@ public class BuyerProductController {
             productVOList.add(productVO);
         }
 
-        ResultVO resultVO = new ResultVO();
-
-        resultVO.setCode(0);
-        resultVO.setMsg("成功");
-        resultVO.setData(productVOList);
-        return  resultVO;
+        return ResultVOUtil.success(productVOList);
     }
 }

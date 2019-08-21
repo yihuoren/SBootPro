@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * 类目
+ * 商品类目
  * Created by 廖师兄
  * 2017-05-07 14:30
  */
