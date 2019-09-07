@@ -70,9 +70,20 @@ public class BuyerOrderController {
         return ResultVOUtil.success(orderDTOPage.getContent());
     }
     //订单详情(查询单个订单)
+    @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
                                      @RequestParam("orderId") String orderId){
-        return null;
+        // TODO 不安全的做法，后期改进
+        OrderDTO orderDTO = orderService.findOne(orderId);
+        return ResultVOUtil.success(orderDTO);
     }
     //取消订单
+    @PostMapping("/cancel")
+    public ResultVO cancel(@RequestParam("openid") String openid,
+                           @RequestParam("orderId") String orderId){
+        // TODO 不安全的做法，后期改进
+        OrderDTO orderDTO = orderService.findOne(orderId);
+        orderService.cancel(orderDTO);
+        return ResultVOUtil.success();
+    }
 }
