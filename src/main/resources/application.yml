@@ -6,5 +6,9 @@ spring:
     url: jdbc:mysql://localhost:3306/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+#  全局配置添加，key值为null，过滤掉该字段
+#  当字段必须返回且值不能为null时，则不能使用该配置;我们只需要给对应的字段设置初始值即可，例如：空字符串，空数组
+#  jackson:
+#    default-property-inclusion: non_null
 server:
   context-path: /sell
